@@ -11,5 +11,4 @@ class PostListView(View):
             'post_list': posts,
 
         }
-        x = 'asd'
         return render(request, 'social/post_list.html', context)
