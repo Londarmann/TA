@@ -5,5 +5,12 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     body = models.TextField()
-    created_at = models.DateTimeField(default=timezone.now())
+    created_at = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+class Comment(models.Model):
+    comment = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey('Post', on_delete=models.CASCADE)
